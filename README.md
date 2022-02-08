@@ -2,7 +2,7 @@
 
 ## Description
 
-The aim of this project is to code a C library regrouping usual functions that I will be allowed to use in all my other 42 projects. This useful library can be extended with my personal functions.
+The aim of this project is to code a C library regrouping usual functions that will be allowed to use in all other 42 projects. This useful library can be extended with additional functions.
 
 ## Subject
 
