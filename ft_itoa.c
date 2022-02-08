@@ -5,71 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/23 13:51:39 by hugsbord          #+#    #+#             */
-/*   Updated: 2019/11/21 17:30:26 by hugsbord         ###   ########.fr       */
+/*   Created: 2021/05/10 14:24:20 by hugsbord          #+#    #+#             */
+/*   Updated: 2021/06/28 16:28:08 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_intlen(int n)
+char	*ft_itoa(int n)
 {
-	size_t			i;
+	char	*str;
 
-	i = 1;
-	while (n /= 10)
-		i++;
-	return (i);
-}
-
-static char		*ft_check_min_zero(int n)
-{
-	char *str;
-
+	str = (char *)ft_calloc(2, sizeof(char));
 	if (n == -2147483648)
+		return (str = ft_strdup("-2147483648"));
+	if (n < 0)
 	{
-		if (!(str = (char*)malloc(sizeof(char) + 11)))
-			return (NULL);
-		ft_memcpy(str, "-2147483648", 11);
-		str[11] = '\0';
-		return (str);
-	}
-	else if (n == 0)
-	{
-		if (!(str = (char*)malloc(sizeof(char) * 1 + 1)))
-			return (NULL);
-		ft_memcpy(str, "0", 1);
+		str[0] = '-';
 		str[1] = '\0';
-		return (str);
+		str = ft_strjoin(str, ft_itoa(-n));
 	}
-	return (NULL);
-}
-
-char			*ft_itoa(int n)
-{
-	char			*str;
-	size_t			len;
-	size_t			len_tmp;
-	int				n_tmp;
-
-	len = ft_intlen(n);
-	n_tmp = n;
-	len_tmp = len;
-	if ((n == -2147483648) || (n == 0))
-		return (ft_check_min_zero(n));
-	if (n < 0)
+	else if (n >= 10)
+		str = ft_strjoin(ft_itoa(n / 10), ft_itoa(n % 10));
+	else if (n < 10 && n >= 0)
 	{
-		n_tmp = -n;
-		len++;
+		str[0] = n + '0';
+		str[1] = '\0';
 	}
-	if (!(str = (char *)malloc(sizeof(char) * len + 1)))
-		return (NULL);
-	str[--len] = n_tmp % 10 + 48;
-	while (n_tmp /= 10)
-		str[--len] = n_tmp % 10 + 48;
-	if (n < 0)
-		*(str + 0) = '-';
-	len_tmp = n < 0 ? ++len_tmp : len_tmp;
-	str[len_tmp] = '\0';
 	return (str);
 }

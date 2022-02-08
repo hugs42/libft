@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/13 15:17:34 by hugsbord          #+#    #+#             */
-/*   Updated: 2019/11/13 17:37:14 by hugsbord         ###   ########.fr       */
+/*   Created: 2021/04/15 11:38:01 by hugsbord          #+#    #+#             */
+/*   Updated: 2021/06/28 17:03:48 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list		*ft_lstlast(t_list *list)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (!list)
+	if (!lst)
 		return (NULL);
-	while (list->next != NULL)
-		list = list->next;
-	return (list);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }
