@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 20:49:56 by hugsbord          #+#    #+#             */
-/*   Updated: 2022/02/08 13:32:54 by hugsbord         ###   ########.fr       */
+/*   Updated: 2022/02/08 15:09:30 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,11 @@ void				ft_print_hex(char *str);
 int					ft_atoi_base(const char *str, int str_base);
 int					ft_abs(int nb);
 int					ft_pow(int nb, unsigned int pow);
+int					ft_fibonacci(int nb);
+int					ft_isprime(size_t n);
+int					ft_tablen(char **tab);
+int					ft_count_words(char *str);
+void				ft_free_array(char **array);
 void				ft_putchar(unsigned char c);
 void				ft_putstr(char const *s);
 void				ft_putnbr(int nb);
